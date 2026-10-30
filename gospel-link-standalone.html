@@ -232,6 +232,7 @@
   .site-footer a:hover { color: var(--pine); }
   .site-footer .brand { margin-bottom: 10px; color: var(--ink); }
   .site-footer .foot-about { font-family: var(--serif); font-size: 1.02rem; margin: 0; max-width: 22em; }
+  .legal-links { display: flex; gap: 22px; }
   .legal { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: .86rem; }
 
   @media (max-width: 960px) {
@@ -257,6 +258,22 @@
     .path:hover { transform: none; }
   }
 </style>
+<!-- Google Analytics (GA4). Replace G-XXXXXXXXXX with the site's Measurement ID.
+     Nothing loads until a real ID is set. Described in privacy.html. -->
+<script>
+  (function () {
+    var GA_ID = 'G-XXXXXXXXXX';
+    if (GA_ID === 'G-XXXXXXXXXX') return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', GA_ID, { allow_google_signals: false, allow_ad_personalization_signals: false });
+  })();
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -561,7 +578,7 @@
     </div>
     <div class="legal">
       <span>&copy; 2026 Gospel-Link. Free to use and share.</span>
-      <a href="#main">Back to top</a>
+      <span class="legal-links"><a href="https://gospel-link.com/privacy.html">Privacy policy</a><a href="#main">Back to top</a></span>
     </div>
   </div>
 </footer>

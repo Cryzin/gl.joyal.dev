@@ -1,0 +1,35 @@
+Gospel-Link website: credits
+============================
+
+Content
+-------
+Text, sermons, articles and resources: (c) Dr. Tinku Thompson, gospel-link.com
+
+Images
+------
+images/tinku-thompson.jpg
+    Portrait of Dr. Tinku Thompson. Provided by the site owner.
+
+images/spiritual-fitness-cover.jpg
+    Cover of "Spiritual Fitness: Training for Godliness" by Dr. Tinku Thompson.
+    Provided by the site owner.
+
+og-image.jpg, favicon.svg, images/apple-touch-icon.png
+    Made for this site from the images above and the fonts below.
+
+Fonts
+-----
+All fonts are served by Google Fonts (https://fonts.google.com) and are
+licensed under the SIL Open Font License, Version 1.1
+(https://openfontlicense.org).
+
+Gloock                   Headlines        by Duarte Pires
+Source Serif 4           Reading text     by Frank Griesshammer for Adobe
+Schibsted Grotesk        Menus, buttons   by Bakken & Baeck for Schibsted
+Noto Serif Malayalam     Malayalam text   by Google
+Noto Serif Devanagari    Hindi text       by Google
+
+Services
+--------
+Google Analytics (Google LLC): visitor statistics. See privacy.html.
+Google Fonts (Google LLC): font delivery. See privacy.html.
