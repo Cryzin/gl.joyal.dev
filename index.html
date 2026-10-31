@@ -5,19 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tinku Thompson | Pastor, author, teacher</title>
 <meta name="description" content="Dr. Tinku Thompson, pastor of MPA Church in Saint Paul Park, Minnesota. Sermons, Bible studies, writing and songs in English, Malayalam and Hindi.">
-<link rel="canonical" href="https://gl.joyal.dev/">
 <meta name="theme-color" content="#2F6B4F">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-
-<!-- Link previews (WhatsApp, Facebook, LinkedIn, iMessage, X). og-image.jpg must be uploaded to the site root. -->
+<link rel="preload" href="fonts/gloock-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-serif-4-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/schibsted-grotesk-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/schibsted-grotesk-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/webp" href="images/tinku-thompson-420.webp" imagesrcset="images/tinku-thompson-420.webp 420w, images/tinku-thompson-600.webp 600w, images/tinku-thompson-840.webp 840w" imagesizes="(max-width: 960px) min(80vw, 340px), 420px" fetchpriority="high">
+<link rel="canonical" href="https://gl.joyal.dev/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Gospel-Link">
 <meta property="og:url" content="https://gl.joyal.dev/">
-<meta property="og:title" content="Dr. Tinku Thompson | Gospel-Link">
-<meta property="og:description" content="Free sermons, Bible studies, songs and writing in English, Malayalam and Hindi from Dr. Tinku Thompson, pastor of MPA Church, Minnesota.">
+<meta property="og:title" content="Tinku Thompson | Pastor, author, teacher">
+<meta property="og:description" content="Dr. Tinku Thompson, pastor of MPA Church in Saint Paul Park, Minnesota. Sermons, Bible studies, writing and songs in English, Malayalam and Hindi.">
 <meta property="og:image" content="https://gl.joyal.dev/og-image.jpg">
-<meta property="og:image:secure_url" content="https://gl.joyal.dev/og-image.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -25,277 +27,32 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@tinkuthompson">
-<meta name="twitter:title" content="Dr. Tinku Thompson | Gospel-Link">
-<meta name="twitter:description" content="Free sermons, Bible studies, songs and writing in English, Malayalam and Hindi.">
+<meta name="twitter:title" content="Tinku Thompson | Pastor, author, teacher">
+<meta name="twitter:description" content="Dr. Tinku Thompson, pastor of MPA Church in Saint Paul Park, Minnesota. Sermons, Bible studies, writing and songs in English, Malayalam and Hindi.">
 <meta name="twitter:image" content="https://gl.joyal.dev/og-image.jpg">
-<meta name="twitter:image:alt" content="Dr. Tinku Thompson beside the words: Linking the good news with people.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Schibsted+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Noto+Serif+Malayalam:wght@400;600&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --white: #FFFFFF;
-    --sky: #EAF2F7;
-    --sky-deep: #CFE1EC;
-    --meadow: #EDF3E9;
-    --ink: #22302A;
-    --ink-soft: #55625B;
-    --pine: #2F6B4F;
-    --pine-dark: #234F3B;
-    --wheat: #D9A441;
-    --line: #DDE5E0;
-
-    --display: "Gloock", Georgia, serif;
-    --serif: "Source Serif 4", Georgia, serif;
-    --sans: "Schibsted Grotesk", system-ui, sans-serif;
-    --ml: "Noto Serif Malayalam", serif;
-    --hi: "Noto Serif Devanagari", serif;
-
-    --wrap: 1160px;
-    --gutter: clamp(20px, 4vw, 48px);
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--serif); font-size: 1.125rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  :focus-visible { outline: 3px solid var(--wheat); outline-offset: 3px; border-radius: 3px; }
-  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
-  .skip { position: absolute; left: -999px; top: 8px; background: var(--pine); color: var(--white); padding: 8px 14px; font-family: var(--sans); z-index: 20; }
-  .skip:focus { left: 8px; }
-
-  h1, h2 { font-family: var(--display); font-weight: 400; letter-spacing: -0.01em; margin: 0; }
-  h2 { font-size: clamp(2.1rem, 4vw, 3.2rem); line-height: 1.08; }
-  h3 { font-family: var(--sans); font-weight: 600; font-size: 1.12rem; line-height: 1.35; margin: 0; }
-  .muted { color: var(--ink-soft); }
-
-  .btn { display: inline-block; font-family: var(--sans); font-weight: 600; font-size: 1rem; text-decoration: none; padding: 13px 22px; border-radius: 999px; transition: background .15s, color .15s, border-color .15s; }
-  .btn-pine { background: var(--pine); color: var(--white); }
-  .btn-pine:hover { background: var(--pine-dark); }
-  .btn-line { border: 1.5px solid var(--pine); color: var(--pine); }
-  .btn-line:hover { background: var(--pine); color: var(--white); }
-  .text-link { font-family: var(--sans); font-weight: 600; font-size: .98rem; color: var(--pine); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
-  .text-link:hover { color: var(--pine-dark); }
-
-  /* Header */
-  .site-header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px; }
-  .brand { text-decoration: none; display: flex; align-items: baseline; gap: 10px; }
-  .brand b { font-family: var(--display); font-weight: 400; font-size: 1.5rem; }
-  .brand small { font-family: var(--sans); font-size: .85rem; color: var(--ink-soft); }
-  .nav { display: flex; align-items: center; gap: 2px; font-family: var(--sans); font-weight: 500; font-size: .95rem; }
-  .nav a { text-decoration: none; padding: 8px 12px; border-radius: 999px; color: var(--ink-soft); }
-  .nav a:hover { color: var(--ink); background: var(--meadow); }
-  .nav .btn { margin-left: 8px; color: var(--white); padding: 9px 18px; }
-  .nav .btn:hover { color: var(--white); background: var(--pine-dark); }
-  .menu-btn { display: none; background: none; border: 1.5px solid var(--line); color: var(--ink); font: 600 .9rem var(--sans); padding: 8px 16px; border-radius: 999px; cursor: pointer; }
-
-  /* Hero: a personal welcome, portrait in an arched window */
-  .hero { background: linear-gradient(180deg, var(--sky) 0%, var(--white) 100%); padding: clamp(48px, 7vw, 96px) 0 clamp(56px, 8vw, 110px); }
-  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(36px, 6vw, 90px); align-items: center; }
-  .hello { font-family: var(--sans); font-weight: 600; color: var(--pine); font-size: 1.05rem; margin: 0 0 16px; }
-  .hero h1 { font-size: clamp(2.6rem, 5.4vw, 4.6rem); line-height: 1.02; margin-bottom: 26px; }
-  .hero .lede { font-size: clamp(1.1rem, 1.45vw, 1.28rem); color: var(--ink-soft); max-width: 31em; margin: 0 0 34px; }
-  .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-
-  .arch { position: relative; justify-self: center; width: min(100%, 420px); }
-  .arch-frame { aspect-ratio: 4 / 5; border-radius: 999px 999px 18px 18px; overflow: hidden; background: linear-gradient(170deg, var(--sky-deep), var(--meadow)); box-shadow: 0 0 0 10px var(--white), 0 24px 50px -20px rgba(34,48,42,.35); }
-  .arch-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
-  .portrait-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center; padding: 24px; }
-  .portrait-placeholder b { font-family: var(--display); font-weight: 400; font-size: 5rem; line-height: 1; color: var(--pine); }
-  .portrait-placeholder span { font-family: var(--sans); font-size: .9rem; color: var(--ink-soft); }
-  .note-card { position: absolute; left: -36px; bottom: 32px; background: var(--white); border-radius: 14px; padding: 14px 18px; box-shadow: 0 12px 30px -12px rgba(34,48,42,.3); font-family: var(--sans); font-size: .92rem; line-height: 1.4; max-width: 280px; display: flex; gap: 12px; align-items: center; text-decoration: none; }
-  .note-card img { width: 44px; height: auto; border-radius: 2px; box-shadow: 0 4px 10px -4px rgba(0,0,0,.4); flex: none; }
-  .note-card:hover strong { color: var(--pine); }
-  .note-card strong { display: block; font-weight: 600; }
-  .note-card span { color: var(--ink-soft); }
-
-  /* Good news in three languages */
-  .tongues { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); }
-  .tongues .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 40px; padding-top: 26px; padding-bottom: 26px; }
-  .tongues p { margin: 0; font-family: var(--sans); color: var(--ink-soft); font-size: .98rem; max-width: 22em; }
-  .tongues ul { list-style: none; display: flex; flex-wrap: wrap; gap: 14px 44px; margin: 0; padding: 0; align-items: baseline; }
-  .tongues li { color: var(--pine); line-height: 1.3; }
-  .tongues .en { font-family: var(--display); font-size: 1.9rem; }
-  .tongues .ml { font-family: var(--ml); font-size: 1.6rem; }
-  .tongues .hi { font-family: var(--hi); font-size: 1.75rem; }
-
-  section.block { padding: clamp(64px, 9vw, 112px) 0; }
-  .head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 18px 40px; margin-bottom: 44px; }
-  .head p { margin: 0; max-width: 30em; color: var(--ink-soft); }
-
-  /* Start here */
-  .paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .path { display: flex; flex-direction: column; text-decoration: none; padding: 30px 28px 26px; border-radius: 20px; background: var(--meadow); transition: transform .2s ease; }
-  .path:nth-child(2) { background: var(--sky); }
-  .path:nth-child(3) { background: #F7EFDC; }
-  .path:hover { transform: translateY(-3px); }
-  .path h3 { font-family: var(--display); font-weight: 400; font-size: 1.75rem; margin-bottom: 10px; }
-  .path p { margin: 0 0 22px; color: var(--ink-soft); font-size: 1.02rem; flex: 1; }
-  .path .go { font-family: var(--sans); font-weight: 600; color: var(--pine); }
-
-  /* Latest */
-  .latest { background: var(--white); border-top: 1px solid var(--line); }
-  .latest-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
-  .feature { background: var(--sky); border-radius: 22px; padding: clamp(28px, 4vw, 48px); }
-  .feature .meta { font-family: var(--sans); font-size: .92rem; color: var(--ink-soft); margin: 0 0 18px; }
-  .feature h3 { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 3.4vw, 2.8rem); line-height: 1.08; margin-bottom: 18px; }
-  .feature p { margin: 0 0 28px; color: var(--ink-soft); max-width: 30em; }
-  .posts { list-style: none; margin: 0; padding: 0; }
-  .posts li { border-bottom: 1px solid var(--line); }
-  .posts li:first-child { border-top: 1px solid var(--line); }
-  .posts a { display: block; padding: 18px 0; text-decoration: none; }
-  .posts .t { display: block; font-size: 1.12rem; line-height: 1.4; }
-  .posts a:hover .t { color: var(--pine); text-decoration: underline; text-underline-offset: 3px; }
-  .posts .src { display: block; font-family: var(--sans); font-size: .86rem; color: var(--ink-soft); margin-top: 5px; }
-  .more-links { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 26px; }
-
-  /* Book */
-  .book { background: var(--meadow); }
-  .book .wrap { display: grid; grid-template-columns: minmax(200px, 320px) 1fr; gap: clamp(40px, 7vw, 100px); align-items: center; }
-  .cover img, .cover-fallback { width: 100%; height: auto; border-radius: 4px 10px 10px 4px; box-shadow: 0 28px 50px -22px rgba(34,48,42,.5); }
-  .cover-fallback { aspect-ratio: 732/1024; background: var(--pine); color: var(--white); display: flex; flex-direction: column; justify-content: center; padding: 28px; font-family: var(--display); font-size: 2rem; line-height: 1.08; }
-  .cover-fallback small { font-family: var(--sans); font-size: .9rem; color: #F3D99B; margin-top: 10px; }
-  .book .kicker { font-family: var(--sans); font-weight: 600; color: var(--pine); margin: 0 0 12px; }
-  .book .subtitle { font-style: italic; font-size: clamp(1.25rem, 2vw, 1.5rem); color: var(--ink-soft); margin: 6px 0 24px; }
-  .book p.body { max-width: 33em; margin: 0 0 22px; }
-  blockquote { margin: 0 0 32px; padding-left: 18px; border-left: 3px solid var(--wheat); font-style: italic; font-size: 1.18rem; }
-  blockquote cite { display: block; font-style: normal; font-family: var(--sans); font-size: .9rem; color: var(--ink-soft); margin-top: 4px; }
-
-  /* Faith and technology */
-  .tech .wrap { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(36px, 6vw, 90px); align-items: center; }
-  .tech p.body { color: var(--ink-soft); max-width: 31em; margin: 20px 0 28px; }
-  .q-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-  .q-list a { display: block; text-decoration: none; background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 18px 22px; font-family: var(--display); font-size: 1.35rem; line-height: 1.25; }
-  .q-list a:hover { border-color: var(--pine); color: var(--pine); }
-  .q-list small { display: block; font-family: var(--sans); font-size: .85rem; color: var(--ink-soft); margin-top: 6px; }
-
-  /* Languages */
-  .languages { background: var(--sky); }
-  .lang-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .lang { background: var(--white); border-radius: 20px; padding: clamp(26px, 3vw, 36px); }
-  .lang .script { margin: 0; color: var(--pine); line-height: 1.25; font-size: clamp(2rem, 3.2vw, 2.6rem); }
-  .lang .script.en { font-family: var(--display); }
-  .lang .script.ml { font-family: var(--ml); }
-  .lang .script.hi { font-family: var(--hi); }
-  .lang .name { font-family: var(--sans); font-size: .92rem; color: var(--ink-soft); margin: 2px 0 20px; }
-  .lang ul { list-style: none; margin: 0; padding: 0; font-family: var(--sans); }
-  .lang li + li { border-top: 1px solid var(--line); }
-  .lang a { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; text-decoration: none; font-weight: 500; }
-  .lang a:hover { color: var(--pine); }
-  .lang .kind { font-weight: 400; font-size: .85rem; color: var(--ink-soft); }
-
-  /* Podcast */
-  .podcast .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 90px); align-items: start; }
-  .podcast p.body { color: var(--ink-soft); margin: 18px 0 0; max-width: 30em; }
-  .show { border: 1px solid var(--line); border-radius: 20px; padding: 28px; }
-  .show + .show { margin-top: 16px; }
-  .show .tag { font-family: var(--sans); font-size: .86rem; font-weight: 600; color: var(--pine); margin: 0 0 4px; }
-  .show h3 { font-family: var(--display); font-weight: 400; font-size: 1.8rem; margin-bottom: 8px; }
-  .show p { margin: 0 0 16px; color: var(--ink-soft); font-size: 1rem; }
-  .platforms { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-  .platforms a { display: inline-block; font-family: var(--sans); font-size: .9rem; font-weight: 500; text-decoration: none; padding: 7px 14px; border-radius: 999px; background: var(--meadow); }
-  .platforms a:hover { background: var(--pine); color: var(--white); }
-
-  /* Study */
-  .study { background: var(--white); border-top: 1px solid var(--line); }
-  .study-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 clamp(32px, 5vw, 72px); }
-  .study-grid a { display: block; padding: 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
-  .study-grid a:hover h3 { color: var(--pine); }
-  .study-grid p { margin: 4px 0 0; font-size: 1rem; color: var(--ink-soft); }
-
-  /* About: real milestones in order */
-  .about { background: linear-gradient(180deg, var(--white), var(--sky)); }
-  .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 90px); }
-  .about .bio p { max-width: 33em; margin: 22px 0 0; }
-  .timeline { list-style: none; margin: 0; padding: 0 0 0 28px; position: relative; }
-  .timeline::before { content: ""; position: absolute; left: 6px; top: 10px; bottom: 10px; width: 2px; background: var(--sky-deep); }
-  .timeline li { position: relative; padding: 0 0 28px; }
-  .timeline li::before { content: ""; position: absolute; left: -28px; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: var(--white); border: 3px solid var(--pine); }
-  .timeline .when { font-family: var(--sans); font-weight: 600; font-size: .9rem; color: var(--pine); }
-  .timeline p { margin: 2px 0 0; }
-  .roles { margin-top: 30px; font-family: var(--sans); font-size: .98rem; }
-  .roles div { padding: 12px 0; border-top: 1px solid var(--sky-deep); }
-  .roles span { color: var(--ink-soft); }
-
-  /* Letter / contact */
-  .letter { padding: clamp(64px, 9vw, 112px) 0; text-align: center; }
-  .letter h2 { margin: 0 auto 18px; max-width: 18ch; }
-  .letter p { margin: 0 auto 32px; max-width: 32em; color: var(--ink-soft); }
-  .letter .actions { justify-content: center; }
-
-  /* Footer */
-  .site-footer { border-top: 1px solid var(--line); padding: 56px 0 32px; font-family: var(--sans); font-size: .95rem; color: var(--ink-soft); }
-  .foot-grid { display: grid; grid-template-columns: 1.3fr repeat(3, 1fr); gap: 36px; }
-  .site-footer h4 { margin: 0 0 12px; color: var(--ink); font-weight: 600; font-size: 1rem; }
-  .site-footer ul { list-style: none; margin: 0; padding: 0; }
-  .site-footer li { margin-bottom: 8px; }
-  .site-footer a { text-decoration: none; }
-  .site-footer a:hover { color: var(--pine); }
-  .site-footer .brand { margin-bottom: 10px; color: var(--ink); }
-  .site-footer .foot-about { font-family: var(--serif); font-size: 1.02rem; margin: 0; max-width: 22em; }
-  .legal-links { display: flex; gap: 22px; }
-  .legal { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: .86rem; }
-
-  @media (max-width: 960px) {
-    .menu-btn { display: inline-block; }
-    .nav { display: none; position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; align-items: stretch; background: var(--white); padding: 8px var(--gutter) 20px; border-bottom: 1px solid var(--line); }
-    .nav.open { display: flex; }
-    .nav a { padding: 12px 6px; }
-    .nav .btn { margin: 8px 0 0; text-align: center; }
-    .hero .wrap, .latest-grid, .book .wrap, .tech .wrap, .podcast .wrap, .about .wrap { grid-template-columns: 1fr; }
-    .paths, .lang-grid { grid-template-columns: 1fr; }
-    .arch { width: min(80%, 340px); }
-    .note-card { position: static; margin: 22px auto 0; max-width: 100%; }
-    .book .cover { max-width: 260px; }
-    .foot-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 620px) {
-    .study-grid, .foot-grid { grid-template-columns: 1fr; }
-    .brand small { display: none; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .path { transition: none; }
-    .path:hover { transform: none; }
-  }
-</style>
-<!-- Google Analytics (GA4). Replace G-XXXXXXXXXX with the site's Measurement ID.
-     Nothing loads until a real ID is set. Described in privacy.html. -->
+<style>@font-face{font-family:"Gloock";src:url("fonts/gloock-400.woff2") format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Source Serif 4";src:url("fonts/source-serif-4-400.woff2") format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Source Serif 4";src:url("fonts/source-serif-4-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}@font-face{font-family:"Schibsted Grotesk";src:url("fonts/schibsted-grotesk-400.woff2") format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Schibsted Grotesk";src:url("fonts/schibsted-grotesk-500.woff2") format("woff2");font-weight:500;font-display:swap}@font-face{font-family:"Schibsted Grotesk";src:url("fonts/schibsted-grotesk-600.woff2") format("woff2");font-weight:600 700;font-display:swap}@font-face{font-family:"Noto Serif Malayalam";src:url("fonts/noto-serif-malayalam-400-sub.woff2") format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Noto Serif Devanagari";src:url("fonts/noto-serif-devanagari-400-sub.woff2") format("woff2");font-weight:400;font-display:swap}:root{--white:#FFFFFF;--sky:#EAF2F7;--sky-deep:#CFE1EC;--meadow:#EDF3E9;--ink:#22302A;--ink-soft:#55625B;--pine:#2F6B4F;--pine-dark:#234F3B;--wheat:#D9A441;--line:#DDE5E0;--display:"Gloock",Georgia,serif;--serif:"Source Serif 4",Georgia,serif;--sans:"Schibsted Grotesk",system-ui,sans-serif;--ml:"Noto Serif Malayalam",serif;--hi:"Noto Serif Devanagari",serif;--wrap:1160px;--gutter:clamp(20px,4vw,48px)}*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--white);color:var(--ink);font-family:var(--serif);font-size:1.125rem;line-height:1.65;-webkit-font-smoothing:antialiased}img{max-width:100%;display:block}a{color:inherit}:focus-visible{outline:3px solid var(--wheat);outline-offset:3px;border-radius:3px}.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}.skip{position:absolute;left:-999px;top:8px;background:var(--pine);color:var(--white);padding:8px 14px;font-family:var(--sans);z-index:20}.skip:focus{left:8px}h1,h2{font-family:var(--display);font-weight:400;letter-spacing:-0.01em;margin:0}h2{font-size:clamp(2.1rem,4vw,3.2rem);line-height:1.08}h3{font-family:var(--sans);font-weight:600;font-size:1.12rem;line-height:1.35;margin:0}.btn{display:inline-block;font-family:var(--sans);font-weight:600;font-size:1rem;text-decoration:none;padding:13px 22px;border-radius:999px;transition:background .15s,color .15s,border-color .15s}.btn-pine{background:var(--pine);color:var(--white)}.btn-pine:hover{background:var(--pine-dark)}.btn-line{border:1.5px solid var(--pine);color:var(--pine)}.btn-line:hover{background:var(--pine);color:var(--white)}.text-link{font-family:var(--sans);font-weight:600;font-size:.98rem;color:var(--pine);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}.text-link:hover{color:var(--pine-dark)}.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}.brand{text-decoration:none;display:flex;align-items:baseline;gap:10px}.brand b{font-family:var(--display);font-weight:400;font-size:1.5rem}.brand small{font-family:var(--sans);font-size:.85rem;color:var(--ink-soft)}.nav{display:flex;align-items:center;gap:2px;font-family:var(--sans);font-weight:500;font-size:.95rem}.nav a{text-decoration:none;padding:8px 12px;border-radius:999px;color:var(--ink-soft)}.nav a:hover{color:var(--ink);background:var(--meadow)}.nav .btn{margin-left:8px;color:var(--white);padding:9px 18px}.nav .btn:hover{color:var(--white);background:var(--pine-dark)}.menu-btn{display:none;background:none;border:1.5px solid var(--line);color:var(--ink);font:600 .9rem var(--sans);padding:8px 16px;border-radius:999px;cursor:pointer}.hero{background:linear-gradient(180deg,var(--sky) 0%,var(--white) 100%);padding:clamp(48px,7vw,96px) 0 clamp(56px,8vw,110px)}.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,6vw,90px);align-items:center}.hello{font-family:var(--sans);font-weight:600;color:var(--pine);font-size:1.05rem;margin:0 0 16px}.hero h1{font-size:clamp(2.6rem,5.4vw,4.6rem);line-height:1.02;margin-bottom:26px}.hero .lede{font-size:clamp(1.1rem,1.45vw,1.28rem);color:var(--ink-soft);max-width:31em;margin:0 0 34px}.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.arch{position:relative;justify-self:center;width:min(100%,420px)}.arch-frame{aspect-ratio:4 / 5;border-radius:999px 999px 18px 18px;overflow:hidden;background:linear-gradient(170deg,var(--sky-deep),var(--meadow));box-shadow:0 0 0 10px var(--white),0 24px 50px -20px rgba(34,48,42,.35)}.arch-frame img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}.note-card{position:absolute;left:-36px;bottom:32px;background:var(--white);border-radius:14px;padding:14px 18px;box-shadow:0 12px 30px -12px rgba(34,48,42,.3);font-family:var(--sans);font-size:.92rem;line-height:1.4;max-width:280px;display:flex;gap:12px;align-items:center;text-decoration:none}.note-card img{width:44px;height:62px;object-fit:cover;border-radius:2px;box-shadow:0 4px 10px -4px rgba(0,0,0,.4);flex:none}.note-card:hover strong{color:var(--pine)}.note-card strong{display:block;font-weight:600}.note-card span{color:var(--ink-soft)}.tongues{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white)}.tongues .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 40px;padding-top:26px;padding-bottom:26px}.tongues p{margin:0;font-family:var(--sans);color:var(--ink-soft);font-size:.98rem;max-width:22em}.tongues ul{list-style:none;display:flex;flex-wrap:wrap;gap:14px 44px;margin:0;padding:0;align-items:baseline}.tongues li{color:var(--pine);line-height:1.3}.tongues .en{font-family:var(--display);font-size:1.9rem}.tongues .ml{font-family:var(--ml);font-size:1.6rem}.tongues .hi{font-family:var(--hi);font-size:1.75rem}section.block{padding:clamp(64px,9vw,112px) 0}.head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:18px 40px;margin-bottom:44px}.head p{margin:0;max-width:30em;color:var(--ink-soft)}.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.path{display:flex;flex-direction:column;text-decoration:none;padding:30px 28px 26px;border-radius:20px;background:var(--meadow);transition:transform .2s ease}.path:nth-child(2){background:var(--sky)}.path:nth-child(3){background:#F7EFDC}.path:hover{transform:translateY(-3px)}.path h3{font-family:var(--display);font-weight:400;font-size:1.75rem;margin-bottom:10px}.path p{margin:0 0 22px;color:var(--ink-soft);font-size:1.02rem;flex:1}.path .go{font-family:var(--sans);font-weight:600;color:var(--pine)}.latest{background:var(--white);border-top:1px solid var(--line)}.latest-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:start}.feature{background:var(--sky);border-radius:22px;padding:clamp(28px,4vw,48px)}.feature .meta{font-family:var(--sans);font-size:.92rem;color:var(--ink-soft);margin:0 0 18px}.feature h3{font-family:var(--display);font-weight:400;font-size:clamp(2rem,3.4vw,2.8rem);line-height:1.08;margin-bottom:18px}.feature p{margin:0 0 28px;color:var(--ink-soft);max-width:30em}.posts{list-style:none;margin:0;padding:0}.posts li{border-bottom:1px solid var(--line)}.posts li:first-child{border-top:1px solid var(--line)}.posts a{display:block;padding:18px 0;text-decoration:none}.posts .t{display:block;font-size:1.12rem;line-height:1.4}.posts a:hover .t{color:var(--pine);text-decoration:underline;text-underline-offset:3px}.posts .src{display:block;font-family:var(--sans);font-size:.86rem;color:var(--ink-soft);margin-top:5px}.book{background:var(--meadow)}.book .wrap{display:grid;grid-template-columns:minmax(200px,320px) 1fr;gap:clamp(40px,7vw,100px);align-items:center}.cover img{width:100%;height:auto;border-radius:4px 10px 10px 4px;box-shadow:0 28px 50px -22px rgba(34,48,42,.5)}.book .kicker{font-family:var(--sans);font-weight:600;color:var(--pine);margin:0 0 12px}.book .subtitle{font-style:italic;font-size:clamp(1.25rem,2vw,1.5rem);color:var(--ink-soft);margin:6px 0 24px}.book p.body{max-width:33em;margin:0 0 22px}blockquote{margin:0 0 32px;padding-left:18px;border-left:3px solid var(--wheat);font-style:italic;font-size:1.18rem}blockquote cite{display:block;font-style:normal;font-family:var(--sans);font-size:.9rem;color:var(--ink-soft);margin-top:4px}.tech .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(36px,6vw,90px);align-items:center}.tech p.body{color:var(--ink-soft);max-width:31em;margin:20px 0 28px}.q-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}.q-list a{display:block;text-decoration:none;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px 22px;font-family:var(--display);font-size:1.35rem;line-height:1.25}.q-list a:hover{border-color:var(--pine);color:var(--pine)}.q-list small{display:block;font-family:var(--sans);font-size:.85rem;color:var(--ink-soft);margin-top:6px}.languages{background:var(--sky)}.lang-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.lang{background:var(--white);border-radius:20px;padding:clamp(26px,3vw,36px)}.lang .script{margin:0;color:var(--pine);line-height:1.25;font-size:clamp(2rem,3.2vw,2.6rem)}.lang .script.en{font-family:var(--display)}.lang .script.ml{font-family:var(--ml)}.lang .script.hi{font-family:var(--hi)}.lang .name{font-family:var(--sans);font-size:.92rem;color:var(--ink-soft);margin:2px 0 20px}.lang ul{list-style:none;margin:0;padding:0;font-family:var(--sans)}.lang li + li{border-top:1px solid var(--line)}.lang a{display:flex;justify-content:space-between;align-items:center;padding:12px 0;text-decoration:none;font-weight:500}.lang a:hover{color:var(--pine)}.lang .kind{font-weight:400;font-size:.85rem;color:var(--ink-soft)}.letter{padding:clamp(64px,9vw,112px) 0;text-align:center}.letter h2{margin:0 auto 18px;max-width:18ch}.letter p{margin:0 auto 32px;max-width:32em;color:var(--ink-soft)}.letter .actions{justify-content:center}.site-footer{border-top:1px solid var(--line);padding:56px 0 32px;font-family:var(--sans);font-size:.95rem;color:var(--ink-soft)}.foot-grid{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:36px}.site-footer .foot-h{font-family:var(--sans);letter-spacing:0;line-height:1.3;margin:0 0 12px;color:var(--ink);font-weight:600;font-size:1rem}.site-footer ul{list-style:none;margin:0;padding:0}.site-footer li{margin-bottom:8px}.site-footer a{text-decoration:none}.site-footer a:hover{color:var(--pine)}.site-footer .brand{margin-bottom:10px;color:var(--ink)}.site-footer .foot-about{font-family:var(--serif);font-size:1.02rem;margin:0;max-width:22em}.legal-links{display:flex;gap:22px}.legal{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.86rem}.nav a[aria-current="page"]{color:var(--ink);background:var(--meadow)}.nav a.btn[aria-current="page"]{background:var(--pine-dark);color:var(--white)}main>section.block:last-child{padding-bottom:clamp(64px,9vw,112px)}.videos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px}.video a{display:block;text-decoration:none}.video img{width:100%;height:auto;aspect-ratio:16 / 9;object-fit:cover;border-radius:14px;background:var(--sky)}.video h3{margin:12px 0 4px;font-size:1.05rem}.video a:hover h3{color:var(--pine);text-decoration:underline;text-underline-offset:3px}.video time,.ep-meta{font-family:var(--sans);font-size:.86rem;color:var(--ink-soft)}.ep-list{list-style:none;margin:0;padding:0;max-width:880px}.ep a{display:grid;grid-template-columns:1fr auto;gap:4px 24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line);text-decoration:none}.ep:first-child a{border-top:1px solid var(--line)}.ep a:hover h3{color:var(--pine)}.ep p{grid-column:1 / -1;margin:0;color:var(--ink-soft);font-size:1rem}.ep-meta{white-space:nowrap}@media (max-width:960px){.videos{grid-template-columns:repeat(2,1fr)}}@media (max-width:620px){.videos{grid-template-columns:1fr}.ep a{grid-template-columns:1fr}}@media (max-width:960px){.menu-btn{display:inline-block}.nav{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--white);padding:8px var(--gutter) 20px;border-bottom:1px solid var(--line)}.nav.open{display:flex}.nav a{padding:12px 6px}.nav .btn{margin:8px 0 0;text-align:center}.hero .wrap,.latest-grid,.book .wrap,.tech .wrap{grid-template-columns:1fr}.paths,.lang-grid{grid-template-columns:1fr}.arch{width:min(80%,340px)}.note-card{position:static;margin:22px auto 0;max-width:100%}.book .cover{max-width:260px}.foot-grid{grid-template-columns:1fr 1fr}}@media (max-width:620px){.foot-grid{grid-template-columns:1fr}.brand small{display:none}}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.path{transition:none}.path:hover{transform:none}}</style>
 <script>
-  (function () {
-    var GA_ID = 'G-XXXXXXXXXX';
-    if (GA_ID === 'G-XXXXXXXXXX') return;
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { dataLayer.push(arguments); };
-    gtag('js', new Date());
-    gtag('config', GA_ID, { allow_google_signals: false, allow_ad_personalization_signals: false });
-  })();
+/* Google Analytics (GA4): replace G-XXXXXXXXXX with the site's Measurement ID. Nothing loads until it is set. */
+(function(){var id='G-XXXXXXXXXX';if(id==='G-XXXXXXXXXX')return;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+id;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',id,{allow_google_signals:false,allow_ad_personalization_signals:false});})();
 </script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="https://gl.joyal.dev/"><b>Tinku Thompson</b><small>Gospel-Link</small></a>
+    <a class="brand" href="index.html"><b>Tinku Thompson</b><small>Gospel-Link</small></a>
     <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#messages">Messages</a>
-      <a href="#latest">Writing</a>
-      <a href="#book">Book</a>
-      <a href="#podcast">Podcast</a>
-      <a href="#study">Bible study</a>
-      <a href="#about">About</a>
-      <a class="btn btn-pine" href="https://gospel-link.com/contact/">Say hello</a>
+      <a href="messages.html">Messages</a>
+      <a href="writing.html">Writing</a>
+      <a href="book.html">Book</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="bible-study.html">Bible study</a>
+      <a href="about.html">About</a>
+      <a class="btn btn-pine" href="contact.html">Say hello</a>
     </nav>
   </div>
 </header>
-
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap">
@@ -308,13 +65,10 @@
           <a class="btn btn-line" href="https://tinkuthompson.substack.com/">Get my newsletter</a>
         </div>
       </div>
-
       <div class="arch">
-        <div class="arch-frame">
-          <img src="images/tinku-thompson.jpg" alt="Pastor Tinku Thompson" width="840" height="1124">
-        </div>
-        <a class="note-card" href="#book">
-          <img src="images/spiritual-fitness-cover.jpg" alt="" width="44" height="62">
+        <div class="arch-frame"><img src="images/tinku-thompson-420.webp" srcset="images/tinku-thompson-420.webp 420w, images/tinku-thompson-600.webp 600w, images/tinku-thompson-840.webp 840w" sizes="(max-width: 960px) min(80vw, 340px), 420px" width="420" height="525" alt="Pastor Tinku Thompson" fetchpriority="high"></div>
+        <a class="note-card" href="book.html">
+          <img src="images/spiritual-fitness-96.webp" alt="" width="44" height="62" loading="lazy" decoding="async">
           <span class="nc-text"><strong>New book: Spiritual Fitness</strong>
           <span>Eighteen disciplines for a thriving spiritual life.</span></span>
         </a>
@@ -340,12 +94,12 @@
         <p>Whether you're exploring faith or leading a small group, here are three easy ways in.</p>
       </div>
       <div class="paths">
-        <a class="path" href="https://gospel-link.com/video-messages-english/">
+        <a class="path" href="messages.html">
           <h3>Watch a sermon</h3>
-          <p>Recent Sunday messages and short teachings on video, in English, Malayalam and Hindi.</p>
+          <p>Sunday messages and short teachings on video, in English, Malayalam and Hindi.</p>
           <span class="go">Browse messages</span>
         </a>
-        <a class="path" href="https://gospel-link.com/bible-study/">
+        <a class="path" href="bible-study.html">
           <h3>Study the Bible</h3>
           <p>Notes on every book of the Old and New Testaments, plus topical studies you can use with a group.</p>
           <span class="go">Open Bible studies</span>
@@ -359,50 +113,75 @@
     </div>
   </section>
 
-  <section class="block latest" id="latest" aria-labelledby="latest-title">
+  <section class="block latest" aria-labelledby="latest-title">
     <div class="wrap">
       <div class="head">
         <h2 id="latest-title">Lately I've been writing about</h2>
+        <a class="text-link" href="writing.html">See all writing</a>
       </div>
       <div class="latest-grid">
-        <article class="feature">
+        <article class="feature"><!-- feed:featured -->
           <p class="meta">Newsletter, October 24, 2026</p>
           <h3>Signal and Noise: staying tuned to the voice that matters</h3>
           <p>With so many voices competing for our attention, how do we keep listening for the one that matters most?</p>
           <a class="btn btn-pine" href="https://tinkuthompson.substack.com/p/signal-and-noise">Read the reflection</a>
-        </article>
-        <div>
-          <ul class="posts">
-            <li><a href="https://tinkuthompson.blogspot.com/2026/08/no-man-is-greater-than-his-prayer-life.html"><span class="t">No Man Is Greater Than His Prayer Life</span><span class="src">Blog, August 8, 2026</span></a></li>
-            <li><a href="https://tinkuthompson.substack.com/p/a-seat-at-the-feet-of-jesus"><span class="t">A Seat at the Feet of Jesus</span><span class="src">Newsletter, July 16, 2026</span></a></li>
-            <li><a href="https://tinkuthompson.blogspot.com/2026/07/psychomotor-agitation-what-it-is-and.html"><span class="t">Psychomotor Agitation: What It Is, and Why the Church Needs to Understand It</span><span class="src">Blog, July 27, 2026</span></a></li>
-            <li><a href="https://tinkuthompson.blogspot.com/2026/07/ministry-pattern-in-acts.html"><span class="t">Ministry Pattern in Acts</span><span class="src">Blog, July 23, 2026</span></a></li>
-            <li><a href="https://tinkuthompson.blogspot.com/2026/04/the-bible-beginners-guide-to-worlds.html"><span class="t">The Bible: A Beginner's Guide to the World's Most-Read Book</span><span class="src">Blog, April 15, 2026</span></a></li>
-          </ul>
-          <div class="more-links">
-            <a class="text-link" href="https://tinkuthompson.blogspot.com/">All blog posts</a>
-            <a class="text-link" href="https://tinkuthompson.substack.com/">Newsletter archive</a>
-            <a class="text-link" href="https://divyathompson.blogspot.com/">Pilgrim's Thoughts</a>
-          </div>
-        </div>
+        <!-- /feed:featured --></article>
+        <ul class="posts"><!-- feed:latest -->
+          <li><a href="https://tinkuthompson.blogspot.com/2026/08/no-man-is-greater-than-his-prayer-life.html"><span class="t">No Man Is Greater Than His Prayer Life</span><span class="src">Blog, August 8, 2026</span></a></li>
+          <li><a href="https://tinkuthompson.substack.com/p/a-seat-at-the-feet-of-jesus"><span class="t">A Seat at the Feet of Jesus</span><span class="src">Newsletter, July 16, 2026</span></a></li>
+          <li><a href="https://www.theologyai.com/2026/10/artificial-to-super-intelligence.html"><span class="t">Artificial to Super Intelligence</span><span class="src">Theology AI, October 26, 2026</span></a></li>
+          <li><a href="https://tinkuthompson.blogspot.com/2026/07/ministry-pattern-in-acts.html"><span class="t">Ministry Pattern in Acts</span><span class="src">Blog, July 23, 2026</span></a></li>
+        <!-- /feed:latest --></ul>
       </div>
     </div>
   </section>
 
-  <section class="block book" id="book" aria-labelledby="book-title">
+  <section class="block book" aria-labelledby="book-title">
     <div class="wrap">
-      <div class="cover">
-        <img src="images/spiritual-fitness-cover.jpg" alt="Cover of Spiritual Fitness: Training for Godliness by Dr. Tinku Thompson" width="720" height="1008">
-      </div>
+      <div class="cover"><img src="images/spiritual-fitness-320.webp" srcset="images/spiritual-fitness-320.webp 320w, images/spiritual-fitness-480.webp 480w, images/spiritual-fitness-640.webp 640w" sizes="(max-width: 960px) 260px, 340px" width="320" height="448" alt="Cover of Spiritual Fitness: Training for Godliness by Dr. Tinku Thompson" loading="lazy" decoding="async"></div>
       <div>
         <p class="kicker">My new book</p>
         <h2 id="book-title">Spiritual Fitness</h2>
         <p class="subtitle">Training for Godliness</p>
         <p class="body">Athletes train with intention, and so can we. This practical guide walks through eighteen spiritual disciplines that help faith grow strong and stay healthy over a lifetime.</p>
-        <blockquote>Train yourself to be godly.<cite>1 Timothy 4:7</cite></blockquote>
         <div class="actions">
           <a class="btn btn-pine" href="https://www.amazon.com/dp/B0GS6YN1MC">Order on Amazon</a>
-          <a class="text-link" href="https://gospel-link.com/books/">About the book</a>
+          <a class="text-link" href="book.html">About the book</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block languages" aria-labelledby="messages-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="messages-title">Messages and songs</h2>
+        <a class="text-link" href="messages.html">All messages and songs</a>
+      </div>
+      <div class="lang-grid">
+        <div class="lang">
+          <p class="script en" lang="en">English</p>
+          <p class="name">Sermons and short teachings</p>
+          <ul>
+            <li><a href="https://gospel-link.com/video-messages-english/">Video messages <span class="kind">Watch</span></a></li>
+            <li><a href="https://gospel-link.com/audio-messages-english/">Audio messages <span class="kind">Listen</span></a></li>
+          </ul>
+        </div>
+        <div class="lang">
+          <p class="script ml" lang="ml">മലയാളം</p>
+          <p class="name">Malayalam</p>
+          <ul>
+            <li><a href="https://gospel-link.com/video-messages/">Video messages <span class="kind">Watch</span></a></li>
+            <li><a href="https://gospel-link.com/songs-malayalam/">Songs <span class="kind">Listen</span></a></li>
+          </ul>
+        </div>
+        <div class="lang">
+          <p class="script hi" lang="hi">हिन्दी</p>
+          <p class="name">Hindi</p>
+          <ul>
+            <li><a href="https://gospel-link.com/video-messages-hindi/">Video messages <span class="kind">Watch</span></a></li>
+            <li><a href="https://gospel-link.com/songs/">Songs <span class="kind">Listen</span></a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -415,119 +194,11 @@
         <p class="body">My doctoral work at Bethel Seminary explored theology and artificial intelligence, and I also work in technology as a principal architect. On Theology AI, I help pastors and believers think clearly about these tools, with both curiosity and conviction.</p>
         <a class="btn btn-line" href="https://www.theologyai.com/">Visit Theology AI</a>
       </div>
-      <ul class="q-list">
+      <ul class="q-list"><!-- feed:theologyai-home -->
         <li><a href="https://www.theologyai.com/2026/10/artificial-to-super-intelligence.html">Artificial to Super Intelligence<small>October 26, 2026</small></a></li>
         <li><a href="https://www.theologyai.com/2026/05/is-using-ai-like-stealing.html">Is Using AI Like Stealing?<small>May 5, 2026</small></a></li>
         <li><a href="https://www.theologyai.com/2026/06/create-first-consult-ai-later.html">Create First, Consult AI Later<small>June 8, 2026</small></a></li>
-        <li><a href="https://www.theologyai.com/2025/08/why-churches-and-ministries-cannot.html">Why Churches and Ministries Cannot Ignore AI<small>August 28, 2025</small></a></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="block languages" id="messages" aria-labelledby="messages-title">
-    <div class="wrap">
-      <div class="head">
-        <h2 id="messages-title">Messages and songs</h2>
-        <p>Choose your language to find sermons on video and audio, and worship songs.</p>
-      </div>
-      <div class="lang-grid">
-        <div class="lang">
-          <p class="script en" lang="en">English</p>
-          <p class="name">Sermons and short teachings</p>
-          <ul>
-            <li><a href="https://gospel-link.com/video-messages-english/">Video messages <span class="kind">Watch</span></a></li>
-            <li><a href="https://gospel-link.com/audio-messages-english/">Audio messages <span class="kind">Listen</span></a></li>
-            <li><a href="https://gospel-link.com/youtube-shorts/">YouTube Shorts <span class="kind">Watch</span></a></li>
-          </ul>
-        </div>
-        <div class="lang">
-          <p class="script ml" lang="ml">മലയാളം</p>
-          <p class="name">Malayalam</p>
-          <ul>
-            <li><a href="https://gospel-link.com/video-messages/">Video messages <span class="kind">Watch</span></a></li>
-            <li><a href="https://gospel-link.com/audio-messages/">Audio messages <span class="kind">Listen</span></a></li>
-            <li><a href="https://gospel-link.com/songs-malayalam/">Songs <span class="kind">Listen</span></a></li>
-          </ul>
-        </div>
-        <div class="lang">
-          <p class="script hi" lang="hi">हिन्दी</p>
-          <p class="name">Hindi</p>
-          <ul>
-            <li><a href="https://gospel-link.com/video-messages-hindi/">Video messages <span class="kind">Watch</span></a></li>
-            <li><a href="https://gospel-link.com/podcast-hindi-jeevan-unnati-samvaad/">Jeevan Unnati Samvaad <span class="kind">Podcast</span></a></li>
-            <li><a href="https://gospel-link.com/songs/">Songs <span class="kind">Listen</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block podcast" id="podcast" aria-labelledby="podcast-title">
-    <div class="wrap">
-      <div>
-        <h2 id="podcast-title">Listen along the way</h2>
-        <p class="body">Practical conversations on faith and growth for your commute, a walk, or a quiet evening.</p>
-      </div>
-      <div>
-        <article class="show">
-          <p class="tag">English</p>
-          <h3>Thriving Talk</h3>
-          <p>Conversations about living a healthy, growing Christian life.</p>
-          <ul class="platforms">
-            <li><a href="https://podcasts.apple.com/us/podcast/thriving-talk/id1638183396">Apple Podcasts</a></li>
-            <li><a href="https://open.spotify.com/show/6AM0x1Gstm5ctvAnARUveo">Spotify</a></li>
-            <li><a href="https://music.amazon.com/podcasts/18796e9a-bfd3-4a40-b6f6-94f508943c61/thriving-talk">Amazon Music</a></li>
-            <li><a href="https://www.pandora.com/podcast/thriving-talk/PC:1001025981">Pandora</a></li>
-            <li><a href="https://anchor.fm/s/add0e514/podcast/rss">RSS</a></li>
-          </ul>
-        </article>
-        <article class="show">
-          <p class="tag">Hindi</p>
-          <h3>Jeevan Unnati Samvaad</h3>
-          <p>Conversations on spiritual growth for Hindi-speaking listeners.</p>
-          <a class="text-link" href="https://gospel-link.com/podcast-hindi-jeevan-unnati-samvaad/">Listen to episodes</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="block study" id="study" aria-labelledby="study-title">
-    <div class="wrap">
-      <div class="head">
-        <h2 id="study-title">Bible study resources</h2>
-        <p>Free notes, papers and slides for personal study, small groups and teaching.</p>
-      </div>
-      <div class="study-grid">
-        <a href="https://gospel-link.com/books-of-new-testament/"><h3>Books of the New Testament</h3><p>Background and outlines from Matthew to Revelation.</p></a>
-        <a href="https://gospel-link.com/books-of-old-testament/"><h3>Books of the Old Testament</h3><p>Overviews of the law, history, poetry and prophets.</p></a>
-        <a href="https://gospel-link.com/ministry-of-holy-spirit/"><h3>Ministry of the Holy Spirit</h3><p>Who the Spirit is and how he works in the church today.</p></a>
-        <a href="https://gospel-link.com/significant-interpretations-of-revelation/"><h3>Interpreting Revelation</h3><p>The major ways Christians have read the Bible's final book.</p></a>
-        <a href="https://gospel-link.com/concept-of-atheism/"><h3>The concept of atheism</h3><p>Understanding unbelief and responding with grace.</p></a>
-        <a href="https://gospel-link.com/powerpoints/"><h3>PowerPoints</h3><p>Ready-to-use slides on a range of topics.</p></a>
-        <a href="https://gospel-link.com/papers/"><h3>Papers</h3><p>Academic and theological writing.</p></a>
-        <a href="https://gospel-link.com/selected-blog-posts/"><h3>Selected blog posts</h3><p>A collection of favorite articles.</p></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="block about" id="about" aria-labelledby="about-title">
-    <div class="wrap">
-      <div class="bio">
-        <h2 id="about-title">A little about me</h2>
-        <p>I grew up in India, where I served in ministry before moving to the United States. Today I pastor a local church, serve ministries across several countries, and work in technology. I named this site Gospel-Link because the gospel is good news, and my hope is simply to link that good news with people.</p>
-        <div class="roles">
-          <div><strong>Senior Pastor</strong>, <span>MPA Church, Saint Paul Park, Minnesota</span></div>
-          <div><strong>General Secretary and Director of Operations</strong>, <span>ICPF International, eight countries</span></div>
-          <div><strong>President</strong>, <span>Sharon Fellowship Churches of North America</span></div>
-        </div>
-      </div>
-      <ol class="timeline" aria-label="Milestones">
-        <li><span class="when">Early years</span><p>Grew up in India and served in ministry there.</p></li>
-        <li><span class="when">2009</span><p>Founded MPA Church in Saint Paul Park with a small group of believers.</p></li>
-        <li><span class="when">Seminary</span><p>Master of Theology, University of Northwestern, St. Paul.</p></li>
-        <li><span class="when">2020</span><p>Doctor of Ministry, Bethel Seminary, with a dissertation on theology and AI.</p></li>
-        <li><span class="when">2026</span><p>Published <em>Spiritual Fitness: Training for Godliness</em>.</p></li>
-      </ol>
+      <!-- /feed:theologyai-home --></ul>
     </div>
   </section>
 
@@ -536,22 +207,31 @@
       <h2 id="letter-title">I'd love to hear from you</h2>
       <p>Have a question, a prayer request, or a story of what God is doing in your life? Send me a note.</p>
       <div class="actions">
-        <a class="btn btn-pine" href="https://gospel-link.com/contact/">Send a message</a>
-        <a class="btn btn-line" href="https://www.youtube.com/c/GospelLinkM">Watch on YouTube</a>
+        <a class="btn btn-pine" href="contact.html">Say hello</a>
+        <a class="btn btn-line" href="about.html">More about me</a>
       </div>
     </div>
   </section>
 </main>
-
 <footer class="site-footer">
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="https://gl.joyal.dev/"><b>Tinku Thompson</b></a>
+        <a class="brand" href="index.html"><b>Tinku Thompson</b></a>
         <p class="foot-about">Linking the gospel and people, in English, Malayalam and Hindi.</p>
       </div>
       <div>
-        <h4>Follow</h4>
+        <h2 class="foot-h">Explore</h2>
+        <ul>
+          <li><a href="messages.html">Messages and songs</a></li>
+          <li><a href="writing.html">Writing</a></li>
+          <li><a href="book.html">Spiritual Fitness</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+          <li><a href="bible-study.html">Bible study</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="foot-h">Follow</h2>
         <ul>
           <li><a href="https://www.youtube.com/c/GospelLinkM">YouTube</a></li>
           <li><a href="https://www.facebook.com/GospelLinkWriter">Facebook</a></li>
@@ -560,40 +240,22 @@
         </ul>
       </div>
       <div>
-        <h4>Read</h4>
+        <h2 class="foot-h">Connect</h2>
         <ul>
-          <li><a href="https://tinkuthompson.blogspot.com/">Spiritual Journey Insights</a></li>
-          <li><a href="https://www.theologyai.com/">Theology AI</a></li>
-          <li><a href="https://divyathompson.blogspot.com/">Pilgrim's Thoughts</a></li>
-          <li><a href="https://gospel-link.com/links/">Helpful links</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="https://gospel-link.com/resources/">All resources</a></li>
-          <li><a href="https://gospel-link.com/sermons/">All messages</a></li>
-          <li><a href="https://gospel-link.com/about/">About</a></li>
-          <li><a href="https://gospel-link.com/contact/">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://mpa.church/">MPA Church</a></li>
         </ul>
       </div>
     </div>
     <div class="legal">
-      <span>&copy; 2026 Gospel-Link. Free to use and share.</span>
+      <span>&copy; <!-- feed:year -->2026<!-- /feed:year --> Gospel-Link. Free to use and share.</span>
       <span class="legal-links"><a href="privacy.html">Privacy policy</a><a href="#main">Back to top</a></span>
     </div>
   </div>
 </footer>
-
 <script>
-  const btn = document.querySelector('.menu-btn');
-  const nav = document.getElementById('nav');
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
-    btn.textContent = open ? 'Close' : 'Menu';
-  });
-  nav.addEventListener('click', e => { if (e.target.tagName === 'A' && nav.classList.contains('open')) btn.click(); });
+(function(){var b=document.querySelector('.menu-btn'),n=document.getElementById('nav');b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu';});})();
 </script>
 </body>
 </html>
