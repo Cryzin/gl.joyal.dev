@@ -41,6 +41,7 @@ FEEDS = {
         "https://www.theologyai.com/rss.xml",
     ],
     "podcast": ["https://anchor.fm/s/add0e514/podcast/rss"],
+    "jeevan": ["https://anchor.fm/s/ef4c0c44/podcast/rss"],
     "youtube": ["https://www.youtube.com/feeds/videos.xml?channel_id=UCrV-D20f4pD5IQNf_IcRG4A"],
 }
 SOURCE_LABEL = {"newsletter": "Newsletter", "blog": "Blog", "theologyai": "Theology AI"}
@@ -61,6 +62,7 @@ class Item:
     source: str = ""
     video_id: str = ""
     duration: str = ""
+    audio: str = ""
 
 
 # ------------------------------------------------------------------ fetching and parsing
@@ -119,8 +121,10 @@ def parse_feed(data: bytes, source: str) -> list[Item]:
     else:  # RSS 2.0: Substack, Blogger ?alt=rss, podcast hosts
         for e in root.iter("item"):
             summary = e.findtext("description") or e.findtext("itunes:summary", None, NS)
+            enc = e.find("enclosure")
             items.append(Item(clean_text(e.findtext("title")), safe_url(e.findtext("link")), parse_date(e.findtext("pubDate")),
-                              clean_text(summary, 180), source, duration=(e.findtext("itunes:duration", "", NS) or "").strip()))
+                              clean_text(summary, 180), source, duration=(e.findtext("itunes:duration", "", NS) or "").strip(),
+                              audio=safe_url(enc.get("url") if enc is not None else "")))
     items = [i for i in items if i.title and i.url and i.date]
     items.sort(key=lambda i: i.date, reverse=True)
     return items
@@ -183,7 +187,7 @@ def render_featured(i: Item) -> str:
             f'\n          <a class="btn btn-pine" href="{esc(i.url)}">{button}</a>\n        ')
 
 
-def render_videos(items: list[Item], thumbs_dir: pathlib.Path, offline: bool) -> str:
+def render_videos(items: list[Item], thumbs_dir: pathlib.Path, offline: bool, prefix: str = "") -> str:
     thumbs_dir.mkdir(parents=True, exist_ok=True)
     cards = []
     for n, i in enumerate(items[:6]):
@@ -201,7 +205,7 @@ def render_videos(items: list[Item], thumbs_dir: pathlib.Path, offline: bool) ->
                     log(f"  youtube: no thumbnail for {i.video_id} ({exc})")
                     img = None
         loading = 'fetchpriority="high"' if n == 0 else 'loading="lazy" decoding="async"'  # first one is on screen at load
-        picture = (f'<img src="images/yt/{img.name}" width="320" height="180" alt="" {loading}>'
+        picture = (f'<img src="{prefix}images/yt/{img.name}" width="320" height="180" alt="" {loading}>'
                    if img and img.exists() else "")
         cards.append(f'<li class="video"><a href="https://www.youtube.com/watch?v={i.video_id}">{picture}'
                      f'<h3>{esc(i.title)}</h3><time datetime="{i.date:%Y-%m-%d}">{fmt_date(i.date)}</time></a></li>')
@@ -222,29 +226,64 @@ def render_videos(items: list[Item], thumbs_dir: pathlib.Path, offline: bool) ->
   '''
 
 
-def render_podcast(items: list[Item]) -> str:
+def render_ep_list(items: list[Item], limit: int | None = None, audio: bool = False) -> str:
     rows = []
-    for i in items[:6]:
+    for i in items[:limit]:
         meta = ", ".join(x for x in (fmt_date(i.date), fmt_duration(i.duration)) if x)
         summary = f"<p>{esc(i.summary)}</p>" if i.summary else ""
-        rows.append(f'<li class="ep"><a href="{esc(i.url)}"><h3>{esc(i.title)}</h3><span class="ep-meta">{meta}</span>{summary}</a></li>')
+        player = (f'<audio controls preload="none" src="{esc(i.audio)}"></audio>' if audio and i.audio else "")
+        title = f'<a href="{esc(i.url)}">{esc(i.title)}</a>' if i.url else esc(i.title)
+        rows.append(f'<li class="ep"><h3>{title}</h3><span class="ep-meta">{meta}</span>{summary}{player}</li>')
+    return '<ul class="ep-list">\n        ' + "\n        ".join(rows) + "\n      </ul>"
+
+
+def render_podcast(items: list[Item], title: str, more_href: str, more_text: str, sid: str, limit: int = 6) -> str:
     return f'''
-  <section class="block tight" aria-labelledby="episodes-title">
+  <section class="block tight" aria-labelledby="{sid}">
     <div class="wrap">
       <div class="head">
-        <h2 id="episodes-title">Latest episodes of Thriving Talk</h2>
-        <a class="text-link" href="https://open.spotify.com/show/6AM0x1Gstm5ctvAnARUveo">All episodes</a>
+        <h2 id="{sid}">{title}</h2>
+        <a class="text-link" href="{more_href}">{more_text}</a>
       </div>
-      <ul class="ep-list">
-        {(chr(10) + "        ").join(rows)}
-      </ul>
+      {render_ep_list(items, limit)}
     </div>
   </section>
   '''
 
 
+def inject_thumbs(pages: dict[str, str], offline: bool) -> None:
+    """Give every YouTube card on the site a locally stored thumbnail."""
+    thumbs = ROOT / "images" / "yt"
+    thumbs.mkdir(parents=True, exist_ok=True)
+    ids = sorted({v for html_ in pages.values() for v in re.findall(r'data-yt="([\w-]{6,20})"', html_)})
+    for vid in ids:
+        img = thumbs / f"{vid}.webp"
+        if offline or img.exists():
+            continue
+        try:
+            img.write_bytes(fetch(f"https://i.ytimg.com/vi_webp/{vid}/mqdefault.webp"))
+        except Exception:
+            try:
+                img.with_suffix(".jpg").write_bytes(fetch(f"https://i.ytimg.com/vi/{vid}/mqdefault.jpg"))
+            except Exception as exc:
+                log(f"  thumbnails: none for {vid} ({exc.__class__.__name__})")
+    for name, page in pages.items():
+        prefix = "../" * name.count("/")
+        def thumb(m):
+            vid = m.group(2)
+            for ext in ("webp", "jpg"):
+                if (thumbs / f"{vid}.{ext}").exists():
+                    return (f'{m.group(1)}<span class="yt-thumb"><img src="{prefix}images/yt/{vid}.{ext}" alt="" width="320" height="180" '
+                            f'loading="lazy" decoding="async"></span>')
+            return m.group(0)
+        pages[name] = re.sub(r'(<a class="yt"[^>]*data-yt="([\w-]+)"[^>]*>)<span class="yt-thumb">(?:<img[^>]*>)?</span>', thumb, page)
+
+
 # ------------------------------------------------------------------ writing into pages
 def put(page: str, key: str, content: str, pages: dict[str, str]) -> None:
+    if page not in pages:
+        log(f"  warning: {page} not found")
+        return
     pattern = re.compile(rf"(<!-- feed:{re.escape(key)} -->)(.*?)(<!-- /feed:{re.escape(key)} -->)", re.S)
     if not pattern.search(pages[page]):
         log(f"  warning: marker feed:{key} not found in {page}")
@@ -257,8 +296,7 @@ def main() -> int:
     ap.add_argument("--offline", type=pathlib.Path, help="read <name>.xml files from this folder instead of the web")
     args = ap.parse_args()
 
-    names = ["index.html", "writing.html", "messages.html", "podcast.html"] + \
-            [p.name for p in ROOT.glob("*.html") if p.name not in ("index.html", "writing.html", "messages.html", "podcast.html")]
+    names = sorted(p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*.html") if not p.relative_to(ROOT).as_posix().startswith("."))
     pages = {n: (ROOT / n).read_text(encoding="utf-8") for n in names}
     before = dict(pages)
 
@@ -268,7 +306,7 @@ def main() -> int:
     # Writing page: nine of each
     for key in ("newsletter", "blog", "theologyai"):
         if data[key]:
-            put("writing.html", key, "\n            " + "\n            ".join(li_post(i) for i in data[key][:9]) + "\n          ", pages)
+            put("writing/index.html", key, "\n            " + "\n            ".join(li_post(i) for i in data[key][:9]) + "\n          ", pages)
 
     # Homepage: newest post overall as the feature, the next four (skipping repeats) as a list
     # Only when all three feeds loaded, so one outage never skews the mix.
@@ -288,11 +326,17 @@ def main() -> int:
             f'<li><a href="{esc(i.url)}">{esc(i.title)}<small>{fmt_date(i.date)}</small></a></li>' for i in data["theologyai"][:3]) + "\n      ", pages)
 
     if data["youtube"]:
-        block = render_videos(data["youtube"], ROOT / "images" / "yt", bool(args.offline))
+        block = render_videos(data["youtube"], ROOT / "images" / "yt", bool(args.offline), prefix="../")
         if block:
-            put("messages.html", "youtube", block, pages)
+            put("messages/index.html", "youtube", block, pages)
     if data["podcast"]:
-        put("podcast.html", "podcast", render_podcast(data["podcast"]), pages)
+        put("podcast/index.html", "podcast", render_podcast(data["podcast"], "Latest episodes of Thriving Talk", "thriving-talk.html", "All episodes", "episodes-title"), pages)
+        put("podcast/thriving-talk.html", "thriving", render_ep_list(data["podcast"], None, audio=True), pages)
+    if data["jeevan"]:
+        put("podcast/index.html", "jeevan-latest", render_podcast(data["jeevan"], "Latest episodes of Jeevan Unnati Samvaad", "jeevan-unnati-samvaad.html", "All episodes", "jeevan-title", 3), pages)
+        put("podcast/jeevan-unnati-samvaad.html", "jeevan", render_ep_list(data["jeevan"], None, audio=True), pages)
+
+    inject_thumbs(pages, bool(args.offline))
 
     # Footer year on every page
     year = str(dt.datetime.now(ZONE).year)
@@ -309,7 +353,7 @@ def main() -> int:
         sm = sm_path.read_text(encoding="utf-8")
         today = dt.datetime.now(ZONE).date().isoformat()
         for n in changed:
-            loc = "https://gl.joyal.dev/" + ("" if n == "index.html" else n)
+            loc = "https://gl.joyal.dev/" + (n[: -len("index.html")] if n.endswith("index.html") else n)
             sm = re.sub(rf"(<loc>{re.escape(loc)}</loc>\s*<lastmod>)[^<]*", rf"\g<1>{today}", sm)
         sm_path.write_text(sm, encoding="utf-8")
 

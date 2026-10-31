@@ -4,6 +4,9 @@ Gospel-Link website: credits
 Content
 -------
 Text, sermons, articles and resources: (c) Dr. Tinku Thompson, gospel-link.com
+Pages and archive posts were moved from the earlier WordPress version of gospel-link.com.
+Some resources include additional material shared on the original site to support the
+body of Christ; sources are named in the text where the original did so.
 
 Images
 ------
@@ -13,6 +16,9 @@ images/tinku-thompson-*.webp
 images/spiritual-fitness-*.webp
     Cover of "Spiritual Fitness: Training for Godliness" by Dr. Tinku Thompson.
     Provided by the site owner.
+
+Archive post photos
+    Loaded from Dr. Thompson's Blogger site (blogspot.com), where they were first published.
 
 images/yt/
     Video thumbnails from the Gospel-Link YouTube channel, copied in automatically
