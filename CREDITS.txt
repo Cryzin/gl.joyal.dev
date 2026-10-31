@@ -1,0 +1,50 @@
+Gospel-Link website: credits
+============================
+
+Content
+-------
+Text, sermons, articles and resources: (c) Dr. Tinku Thompson, gospel-link.com
+Pages and archive posts were moved from the earlier WordPress version of gospel-link.com.
+Some resources include additional material shared on the original site to support the
+body of Christ; sources are named in the text where the original did so.
+
+Images
+------
+images/tinku-thompson-*.webp
+    Portrait of Dr. Tinku Thompson. Provided by the site owner.
+
+images/spiritual-fitness-*.webp
+    Cover of "Spiritual Fitness: Training for Godliness" by Dr. Tinku Thompson.
+    Provided by the site owner.
+
+Archive post photos
+    Loaded from Dr. Thompson's Blogger site (blogspot.com), where they were first published.
+
+images/yt/
+    Video thumbnails from the Gospel-Link YouTube channel, copied in automatically
+    when the site updates.
+
+og-image.jpg, favicon.svg, images/apple-touch-icon.png
+    Made for this site from the images above and the fonts below.
+
+Fonts
+-----
+The fonts are stored in the fonts/ folder, reduced to the characters this
+site uses. All are licensed under the SIL Open Font License, Version 1.1.
+The full license and copyright notices are in fonts/LICENSE-OFL.txt.
+
+Gloock                   Headlines        by Duarte Pires
+Source Serif 4           Reading text     by Frank Griesshammer for Adobe
+Schibsted Grotesk        Menus, buttons   by Bakken & Baeck for Schibsted
+Noto Serif Malayalam     Malayalam text   by Google
+Noto Serif Devanagari    Hindi text       by Google
+
+Scripture
+---------
+1 Timothy 4:7-8 is quoted from the Holy Bible, New International Version (NIV).
+Copyright 1973, 1978, 1984, 2011 by Biblica, Inc. Used by permission. All rights reserved worldwide.
+Luke 15:24 is quoted from the King James Version (public domain).
+
+Services
+--------
+Google Analytics (Google LLC): visitor statistics. See privacy.html.
