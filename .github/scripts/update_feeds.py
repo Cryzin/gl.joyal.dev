@@ -28,10 +28,14 @@ from dataclasses import dataclass
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 TIMEZONE = "America/Chicago"
-USER_AGENT = "Mozilla/5.0 (compatible; GospelLinkSiteUpdater/1.0; +https://gl.joyal.dev)"
+USER_AGENT = "Mozilla/5.0 (compatible; GospelLinkSiteUpdater/1.0; +https://gospel-link.com)"
 
 FEEDS = {
-    "newsletter": ["https://tinkuthompson.substack.com/feed"],
+    # If Substack keeps refusing (403), add a mirror of the same feed after it, for example a
+    # FeedBurner address created from https://tinkuthompson.substack.com/feed. Sources are tried in order.
+    "newsletter": [
+        "https://tinkuthompson.substack.com/feed",
+    ],
     # The two blogs are copied onto the site in full by posts.py.
     "podcast": ["https://anchor.fm/s/add0e514/podcast/rss"],
     "jeevan": ["https://anchor.fm/s/ef4c0c44/podcast/rss"],
@@ -64,10 +68,28 @@ def log(msg: str) -> None:
     print(msg, flush=True)
 
 
+# Some hosts (Substack, behind Cloudflare) sometimes refuse automated requests from cloud servers
+# with "403 Forbidden". When that happens, wait a little and try again with the headers a
+# regular feed reader sends. If it still fails, the next source in FEEDS is tried.
+READER_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36",
+    "Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.8, */*;q=0.5",
+    "Accept-Language": "en-US,en;q=0.9",
+}
+
+
 def fetch(url: str) -> bytes:
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, */*"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return r.read()
+    import time, urllib.error
+    attempts = [{"User-Agent": USER_AGENT, "Accept": READER_HEADERS["Accept"]}, READER_HEADERS, READER_HEADERS]
+    for n, headers in enumerate(attempts):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as r:
+                return r.read()
+        except urllib.error.HTTPError as exc:
+            if exc.code not in (403, 429, 503) or n == len(attempts) - 1:
+                raise
+            time.sleep(5 * (n + 1))
+    raise RuntimeError("unreachable")
 
 
 def clean_text(raw: str | None, limit: int = 0) -> str:
@@ -290,10 +312,29 @@ def put(page: str, key: str, content: str, pages: dict[str, str]) -> None:
     pages[page] = pattern.sub(lambda m: m.group(1) + content + m.group(3), pages[page])
 
 
+def move_domain() -> set[pathlib.Path]:
+    """Point links, share images and the sitemap at the current address (posts.SITE)."""
+    changed = set()
+    files = [p for ext in ("*.html", "*.xml", "*.txt") for p in ROOT.rglob(ext) if ".git" not in p.parts]
+    for path in files:
+        text = path.read_text(encoding="utf-8")
+        new = text
+        for old in posts.OLD_SITES:
+            new = new.replace(old, posts.SITE)
+        if new != text:
+            path.write_text(new, encoding="utf-8")
+            changed.add(path)
+    if changed:
+        log(f"  moved {len(changed)} file(s) to {posts.SITE}")
+    return changed
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--offline", type=pathlib.Path, help="read <name>.xml files from this folder instead of the web")
     args = ap.parse_args()
+
+    moved = move_domain()
 
     # 1. Copy blog posts onto the site (creates, updates and removes their pages)
     log("Syncing blog posts")

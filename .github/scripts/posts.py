@@ -36,10 +36,11 @@ from urllib.parse import urlparse, parse_qs, unquote
 from bs4 import BeautifulSoup, Comment
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SITE = "https://gl.joyal.dev"
+SITE = "https://gospel-link.com"
+OLD_SITES = ("https://gl.joyal.dev",)  # earlier addresses of the site, rewritten to SITE on every run
 TEMPLATE = ROOT / ".github" / "templates" / "post.html"
 MANIFEST = ROOT / ".github" / "data" / "posts.json"
-USER_AGENT = "Mozilla/5.0 (compatible; GospelLinkSiteUpdater/1.0; +https://gl.joyal.dev)"
+USER_AGENT = "Mozilla/5.0 (compatible; GospelLinkSiteUpdater/1.0; +https://gospel-link.com)"
 PAGE_SIZE = 150
 
 # Blogs to copy onto the site. "feeds" are tried in order; Blogger feeds are read page by page.
