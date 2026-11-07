@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gl.joyal.dev/sitemap.xml
+Sitemap: https://gospel-link.com/sitemap.xml
