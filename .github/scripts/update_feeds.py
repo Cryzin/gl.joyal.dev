@@ -329,6 +329,18 @@ def move_domain() -> set[pathlib.Path]:
     return changed
 
 
+def saved_newsletter(page: str) -> list[Item] | None:
+    """Newsletter items as last written to the Writing page (used when Substack can't be reached)."""
+    block = re.search(r"<!-- feed:newsletter -->(.*?)<!-- /feed:newsletter -->", page, re.S)
+    items = []
+    for url, title, when in re.findall(
+            r'<a href="([^"]+)"><span class="t">(.*?)</span><span class="src">(?:[^<,]*, )?([A-Z][a-z]+ \d{1,2}, \d{4})</span>',
+            block.group(1) if block else ""):
+        date = dt.datetime.strptime(when, "%B %d, %Y").replace(hour=12, tzinfo=ZONE)
+        items.append(Item(html.unescape(title), html.unescape(url), date, source="newsletter"))
+    return items or None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--offline", type=pathlib.Path, help="read <name>.xml files from this folder instead of the web")
@@ -354,6 +366,10 @@ def main() -> int:
         data[key] = [Item(p.title, p.url, p.when, p.summary, key, local=p.path) for p in plist] or None
     for key in posts.BLOGS:
         data.setdefault(key, None)
+    if not data.get("newsletter"):  # Substack sometimes refuses GitHub's servers; reuse the last list we saved
+        data["newsletter"] = saved_newsletter(pages["writing/index.html"])
+        if data["newsletter"]:
+            log(f"  newsletter: using the {len(data['newsletter'])} items already on the Writing page")
 
     # Writing page: nine of each
     for key in ("newsletter", "blog", "theologyai"):
